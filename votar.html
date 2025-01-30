@@ -1,19 +1,15 @@
 <head>
+    <!-- ...existing code... -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rush MC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <style>
-        /* Garantir que o footer esteja no rodapé */
-        html,
-        body {
-            height: 100%;
-        }
-
         .content {
-            min-height: 100%;
+            min-height: 76%;
             display: flex;
             flex-direction: column;
         }
@@ -33,125 +29,212 @@
         }
 
         .header-gradient {
-            background: linear-gradient(135deg, rgba(var(--bs-dark-rgb), 0.8) 0%, rgba(var(--bs-dark-rgb), 1) 100%) !important;
+            background: rgba(var(--bs-dark-rgb), 1) !important;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Camada escura */
+        }
+
+        .discord-banner {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: white;
+            color: #5865F2;
+            /* Discord brand color */
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .discord-banner i {
+            font-size: 30px;
+        }
+
+        .discord-banner span {
+            font-size: 16px;
+            font-weight: bold;
         }
     </style>
 </head>
 
-<body>
-
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark header-gradient">
         <div class="container">
-            <a class="navbar-brand" href="#">Rush MC</a>
+            <img class="navbar-brand" src="logo.png" href="index.html" style="width: 100px; height: auto;">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <div style="margin-right: 32px;" class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Início</a>
+                        <a class="nav-link " href="index.html">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Loja</a>
+                        <a style="cursor: pointer;" class="nav-link" onclick="window.open('https://loja.rushmc.com.br/')">Loja</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Wiki</a>
+                        <a style="cursor: pointer;" class="nav-link" onclick="window.open('https://rushmc.gitbook.io/rushmc')">Wiki</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="votar.html">Votar</a>
+                        <a class="nav-link active " href="votar.html">Votar</a>
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
-    <div>
-        <div class="position-relative">
-            <img src="banner.png" class="img-fluid w-100" style="max-height: 200px; object-fit: cover; filter: blur(1px);">
-            <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-                <h1>Survival Marítimo</h1>
-                <button class="btn btn-light mt-3" onclick="copyToClipboard()">Copiar IP</button>
+            <div class="social-icons">
+                <a href="https://twitter.com" class="text-white me-3" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="https://instagram.com" class="text-white me-3" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://youtube.com" class="text-white" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-youtube"></i>
+                </a>
             </div>
         </div>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 50px;">
-        <!-- Primeira linha: Votar 1 a Votar 5 -->
-        <div style="display: flex; gap: 20px;">
-            <button 
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://minecraftservers.org/vote/670107', '_blank')"
-            >
-                Votar 1
-            </button>
-            <button
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://minecraft-server-list.com/server/509463/vote/', '_blank')"
-            >
-                Votar 2
-            </button>
-            <button 
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://minecraft-mp.com/server/339656/vote/confirm/', '_blank')"
-            >
-                Votar 3
-            </button>
-            <button 
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://servers-minecraft.net/server-rushmc.41007', '_blank')"
-            >
-                Votar 4
-            </button>
-            <button 
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://www.planetminecraft.com/server/rushmc-6508838/vote', '_blank')"
-            >
-                Votar 5
-            </button>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="content flex-grow-1">
+        <div class="position-relative">
+            <img src="banner.png" class="img-fluid w-100" style="max-height: 200px; object-fit: cover;">
+            <div class="banner-overlay"></div>
+            <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+                <h1 class="banner-text">Survival Marítimo</h1>
+                <p id="status" class="banner-text">Carregando...</p>
+                <button class="btn btn-light mt-3" onclick="copyToClipboard()">Copiar IP</button>
+            </div>
+            <div class="discord-banner">
+                <i class="bi bi-discord"></i>
+                <span>Acesse o nosso Discord</span>
+            </div>
         </div>
-    
-        <!-- Segunda linha: Votar 6 a Votar 10 -->
-        <div style="display: flex; gap: 20px;">
-            <button 
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://mc-server-list.com/server/2162-rushmc/vote', '_blank')"
-            >
-                Votar 6
-            </button>
-            <button 
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://topminecraftservers.org/vote/39738', '_blank')"
-            >
-                Votar 7
-            </button>
-            <button
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://minecraft.buzz/vote/13060', '_blank')"
-            >
-                Votar 8
-            </button>
-            <button
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://topg.org/minecraft-servers/server-669859#vote', '_blank')"
-            >
-                Votar 9
-            </button>
-            <button
-                class="btn btn-primary"
-                style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                onclick="window.open('https://mcservertime.com/server-rushmc.2575/vote', '_blank')"
-            >
-                Votar 10
-            </button>
+
+        <div class="text-center my-4">
+            <h2>Vote no RushMC</h2>
+            <p>Cada voto em nosso servidor rende uma chave para ser aberta na /warp caixas.</p>
+            <p>Com 150 votos, os jogadores online recebem uma recompensa adicional.</p>
         </div>
-    </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 50px;">
+            <!-- Primeira linha: Votar 1 a Votar 5 -->
+            <div style="display: flex; gap: 20px;">
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://minecraftservers.org/vote/670107', '_blank')">
+                    Votar 1
+                </button>
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://minecraft-server-list.com/server/509463/vote/', '_blank')">
+                    Votar 2
+                </button>
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://minecraft-mp.com/server/339656/vote/confirm/', '_blank')">
+                    Votar 3
+                </button>
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://servers-minecraft.net/server-rushmc.41007', '_blank')">
+                    Votar 4
+                </button>
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://www.planetminecraft.com/server/rushmc-6508838/vote', '_blank')">
+                    Votar 5
+                </button>
+            </div>
+
+            <!-- Segunda linha: Votar 6 a Votar 10 -->
+            <div style="display: flex; gap: 20px;">
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://mc-server-list.com/server/2162-rushmc/vote', '_blank')">
+                    Votar 6
+                </button>
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://topminecraftservers.org/vote/39738', '_blank')">
+                    Votar 7
+                </button>
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://minecraft.buzz/vote/13060', '_blank')">
+                    Votar 8
+                </button>
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://topg.org/minecraft-servers/server-669859#vote', '_blank')">
+                    Votar 9
+                </button>
+                <button class="btn btn-primary"
+                    style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
+                    onclick="window.open('https://mcservertime.com/server-rushmc.2575/vote', '_blank')">
+                    Votar 10
+                </button>
+            </div>
+        </div>
+        <footer class="footer mt-auto py-3 bg-dark text-white text-center">
+            <div class="container">
+                <p>
+                    <img src="xxmarceloo.png" style="width: 200px; height: auto;">
+                </p>
+                <p>Todos os direitos reservados.</p>
+                <p>Servidor: <strong>rushmc.com.br</strong></p>
+
+            </div>
+        </footer>
+
+        <script>
+            function copyToClipboard() {
+                const text = 'rushmc.com.br';
+                navigator.clipboard.writeText(text).then(() => {
+                    const copyAlert = document.getElementById('copyAlert');
+                    copyAlert.style.display = 'block';
+                    copyAlert.classList.add('show');
+                    setTimeout(() => {
+                        copyAlert.classList.remove('show');
+                        copyAlert.style.display = 'none';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('Erro ao copiar texto: ', err);
+                });
+            }
+
+            async function getPlayers() {
+                const serverIP = "rushmc.com.br"; // IP do servidor
+                const apiUrl = `https://api.mcsrvstat.us/2/${serverIP}`;
+
+                try {
+                    const response = await fetch(apiUrl);
+                    const data = await response.json();
+
+                    if (data.online) {
+                        document.getElementById("status").innerHTML = `
+                        <strong>Servidor Online ✅</strong><br>
+                        Jogadores Online: <strong>${data.players.online}</strong>
+                    `;
+                    } else {
+                        document.getElementById("status").innerHTML = "Servidor Offline ❌";
+                    }
+                } catch (error) {
+                    document.getElementById("status").innerHTML = "Erro ao obter informações.";
+                }
+            }
+
+            window.onload = getPlayers; // Chama a função ao carregar a página
+        </script>
 </body>
 
 </html>
