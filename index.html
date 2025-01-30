@@ -63,6 +63,13 @@
             font-size: 16px;
             font-weight: bold;
         }
+
+        .alert {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1050;
+        }
     </style>
 </head>
 
@@ -112,11 +119,16 @@
                 <h1 class="banner-text">Survival Marítimo</h1>
                 <p id="status" class="banner-text">Carregando...</p>
                 <button class="btn btn-light mt-3" onclick="copyToClipboard()">Copiar IP</button>
+                <div id="copyAlert" class="alert alert-success mt-3" role="alert" style="display: none;">
+                    IP copiado para a área de transferência!
+                </div>
             </div>
-            <div class="discord-banner">
-                <i class="bi bi-discord"></i>
-                <span>Acesse o nosso Discord</span>
-            </div>
+            <a style="text-decoration: none; color: white;" href="https://discord.com/invite/DUxMSZZyjP" target="_blank" rel="noopener noreferrer">
+                <div class="discord-banner">
+                    <i class="bi bi-discord"></i>
+                    <span>Acesse o nosso Discord</span>
+                </div>
+            </a>
         </div>
 
         <div class="container my-5">
@@ -127,7 +139,6 @@
             </div>
         </div>
 
-       
         <footer class="footer mt-auto py-3 bg-dark text-white text-center">
             <div class="container">
                 <p>
@@ -135,7 +146,6 @@
                 </p>
                 <p>Todos os direitos reservados.</p>
                 <p>Servidor: <strong>rushmc.com.br</strong></p>
-
             </div>
         </footer>
 
@@ -179,5 +189,4 @@
             window.onload = getPlayers; // Chama a função ao carregar a página
         </script>
 </body>
-
 </html>
