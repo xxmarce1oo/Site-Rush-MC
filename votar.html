@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rush MC</title>
+    <link rel="icon" type="image/png" href="RushMC.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -114,7 +115,6 @@
             <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
                 <h1 class="banner-text">Survival Marítimo</h1>
                 <p id="status" class="banner-text">Carregando...</p>
-                <button class="btn btn-light mt-3" onclick="copyToClipboard()">Copiar IP</button>
             </div>
 
             <a style="text-decoration: none; color: white;" href="https://discord.com/invite/DUxMSZZyjP" target="_blank" rel="noopener noreferrer">
@@ -131,7 +131,7 @@
             <p>Com 150 votos, os jogadores online recebem uma recompensa adicional.</p>
         </div>
 
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 50px;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 20px; margin-bottom: 80px;">
             <!-- Primeira linha: Votar 1 a Votar 5 -->
             <div style="display: flex; gap: 20px;">
                 <button class="btn btn-primary"
@@ -146,7 +146,7 @@
                 </button>
                 <button class="btn btn-primary"
                     style="border-radius: 10px; width: 175px;; background-color: rgb(240 70 70 / var(--tw-bg-opacity, 1)); border-color: rgb(240 70 70 / var(--tw-bg-opacity, 1));"
-                    onclick="window.open('https://minecraft-mp.com/server/339656/vote/confirm/', '_blank')">
+                    onclick="window.open('https://minecraft-mp.com/server/339656/vote', '_blank')">
                     Votar 3
                 </button>
                 <button class="btn btn-primary"
@@ -237,8 +237,13 @@
                     document.getElementById("status").innerHTML = "Erro ao obter informações.";
                 }
             }
+            window.onload = function() {
+                updateURL('/votar'); // Chama a função para atualizar a URL
+            };
 
-            window.onload = getPlayers; // Chama a função ao carregar a página
+            function updateURL(newURL) {
+                window.history.pushState({}, document.title, newURL);
+            }
         </script>
 </body>
 
